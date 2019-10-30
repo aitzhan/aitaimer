@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Tomato timer</title>
+</head>
+<body>
+    <h2>Tomato timer</h2>
+    <p>Seconds left :<p th:text="${tomatoTimer.secondsLeft}"></p></p>
+    <p th:text="${!tomatoTimer.isRunning()}"></p>
+    <button th:if="${!tomatoTimer.isRunning()}" id="timer-start" type="submit" th:onclick="${#tomatoTimer.start()}">Start</button>
+    <div th:if="${tomatoTimer.isRunning()}">
+        <button id="timer-pause" type="submit" th:onclick="${#tomatoTimer.pause()}">Pause</button>
+        <button id="timer-stop" type="submit" th:onclick="${#tomatoTimer.stop()}">Stop</button>
+    </div>
+</body>
+<script th:inline="javascript">
+    var startButton = document.getElementById("timer-start");
+    if (startButton) {
+        startButton.onclick = function (ev) {
+            location.reload();
+        };
+    }
+
+    var pauseButton = document.getElementById("timer-pause");
+    if (pauseButton) {
+        pauseButton.onclick = function (ev) {
+            location.reload();
+        };
+    }
+
+    var stopButton = document.getElementById("timer-stop");
+    if (stopButton) {
+        stopButton.onclick = function (ev) {
+            location.reload();
+        };
+    }
+</script>
+</html>
